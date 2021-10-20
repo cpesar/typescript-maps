@@ -1,0 +1,1 @@
+# A simple TypeScript application that uses the faker package to randomly generate some user information. The app then uses the latitude and longitude points with the Google Maps Javascript API to randomly add markers to a map.
