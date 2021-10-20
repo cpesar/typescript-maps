@@ -11,6 +11,8 @@ interface Mappable {
 }
 
 
+
+
 export class CustomMap{
   private googleMap: google.maps.Map;
 
@@ -24,17 +26,24 @@ export class CustomMap{
     });
   }
   addMarker(mappable: Mappable): void {
-    new google.maps.Marker({
+   const marker =  new google.maps.Marker({
       map: this.googleMap,
       position: {
         lat: mappable.location.lat,
         lng: mappable.location.lng
       }
     });
+    marker.addListener('click', () => {
+      const infoWindow = new google.maps.InfoWindow({
+        content: 'Hi There'
+      });
+      infoWindow.open(this.googleMap, marker);
+    })
   }
 
 }
 
+google
 
   //------------------ This is bad code: 2 methods that are almost identical (except for user and company)------------------
   // addUserMarker(user: User): void {
